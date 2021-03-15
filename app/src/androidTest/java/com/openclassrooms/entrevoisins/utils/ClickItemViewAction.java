@@ -25,7 +25,6 @@ public class ClickItemViewAction implements ViewAction {
     @Override
     public void perform(UiController uiController, View view) {
         View button = view.findViewById(R.id.item_list_name);
-        // Maybe check for null
         button.performClick();
     }
 }

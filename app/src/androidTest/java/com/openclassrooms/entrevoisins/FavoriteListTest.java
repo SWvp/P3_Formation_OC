@@ -17,11 +17,14 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.swipeLeft;
+import static android.support.test.espresso.action.ViewActions.swipeRight;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -45,18 +48,19 @@ public class FavoriteListTest {
 
     @Test
     public void myNeighboursList_shouldNotBeEmpty() {
-        // First scroll to the position that needs to be matched and click on it.
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .check(matches(hasMinimumChildCount(1)));
     }
 
     @Test
-    public void onClick_fabDetailActivity_addFavorite_onFavoriteFragment(){
+    public void favoriteFragment_showsOnlyFavorite(){
 
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
         onView(ViewMatchers.withId(R.id.add_Favorite)).perform(click());
-        onView(ViewMatchers.withId(R.id.appbar)).perform(click());
+        onView(ViewMatchers.withId(R.id.back_button)).perform(click());
+        onView(withId(R.id.list_neighbours)).perform(swipeLeft());
         onView(ViewMatchers.withId(R.id.list_favorite)).check(withItemCount(1));
+
     }
 }

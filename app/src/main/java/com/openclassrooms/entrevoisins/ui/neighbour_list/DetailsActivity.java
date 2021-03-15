@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,9 +27,9 @@ import com.squareup.picasso.Picasso;
  */
 public class DetailsActivity extends AppCompatActivity {
 
-    private static final String TAG = DetailsActivity.class.getSimpleName();
     NeighbourApiService mNeighbourApiService;
     FloatingActionButton addFavorite;
+    ImageButton backButton;
     Neighbour neighbour;
 
 
@@ -38,16 +39,13 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour_id);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         /**
          * serialized clicked neighbour
          */
         neighbour = (Neighbour) getIntent().getSerializableExtra("full id");
 
         addFavorite = findViewById(R.id.add_Favorite);
+        backButton = findViewById(R.id.back_button);
 
         mNeighbourApiService = DI.getNeighbourApiService();
 
@@ -69,9 +67,6 @@ public class DetailsActivity extends AppCompatActivity {
         TextView phoneNumber = findViewById(R.id.phone);
         phoneNumber.setText(neighbour.getPhoneNumber());
 
-        TextView webContact = findViewById(R.id.web_Contact);
-        webContact.setText(neighbour.getWebContact());
-
         TextView bio = findViewById(R.id.bio);
         bio.setText(neighbour.getAboutMe());
 
@@ -87,6 +82,19 @@ public class DetailsActivity extends AppCompatActivity {
                 Intent resultIntent = new Intent();
                 setResult(RESULT_OK , resultIntent);
             }
+
+
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent (DetailsActivity.this, ListNeighbourActivity.class);
+                startActivity(intent);
+            }
+
+
         });
     }
 
@@ -100,17 +108,5 @@ public class DetailsActivity extends AppCompatActivity {
         else{
             addFavorite.setColorFilter(Color.argb(255,255,255,255));
         };
-
-    }
-
-    /**
-     * back to main activity
-     * @return
-     */
-    @Override
-    public boolean onSupportNavigateUp(){
-        onBackPressed();
-        finish();
-       return true;
     }
 }

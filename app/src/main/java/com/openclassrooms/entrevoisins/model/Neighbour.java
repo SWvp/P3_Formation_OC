@@ -29,8 +29,6 @@ public class Neighbour implements Serializable {
     /** About me */
     private String aboutMe;
 
-    /** In or out from favorite */
-    private String webContact;
 
     /**
      * Constructor
@@ -39,14 +37,13 @@ public class Neighbour implements Serializable {
      * @param avatarUrl
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe , String webContact) {
+                     String phoneNumber, String aboutMe) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
-        this.webContact = webContact;
     }
 
 
@@ -103,13 +100,7 @@ public class Neighbour implements Serializable {
         this.aboutMe = aboutMe;
     }
 
-    public String getWebContact() {
-        return webContact;
-    }
 
-    public void setWebContact(String webContact) {
-        this.webContact = webContact;
-    }
 
     @Override
     public boolean equals(Object o) {
