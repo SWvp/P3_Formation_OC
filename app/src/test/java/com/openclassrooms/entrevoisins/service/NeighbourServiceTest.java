@@ -47,7 +47,7 @@ public class NeighbourServiceTest {
     public void getFavoritesWithSuccess(){
         service.getFavoriteNeighbours().clear();
         Neighbour neighbour = new Neighbour(12, "Ludovic", "https://i.pravatar.cc/300?u=a042581f3e39026702d", "Saint-Pierre-du-Mont ; 5km",
-                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..", "www.facebook.fr/Ludovic");
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.getFavoriteNeighbours().add(neighbour);
         assertTrue(service.getFavoriteNeighbours().contains(neighbour));
     }
@@ -56,7 +56,7 @@ public class NeighbourServiceTest {
     public void addFavoriteFromFabWithSuccess(){
         service.getFavoriteNeighbours().clear();
         Neighbour neighbour = new Neighbour(12, "Ludovic", "https://i.pravatar.cc/300?u=a042581f3e39026702d", "Saint-Pierre-du-Mont ; 5km",
-                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..", "www.facebook.fr/Ludovic");
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.toggleFavoriteNeighbour(neighbour);
         assertTrue(service.getFavoriteNeighbours().contains(neighbour));
 
@@ -66,7 +66,7 @@ public class NeighbourServiceTest {
     public void deleteFavoriteFromFabWithSuccess(){
         service.getFavoriteNeighbours().clear();
         Neighbour neighbour = new Neighbour(12, "Ludovic", "https://i.pravatar.cc/300?u=a042581f3e39026702d", "Saint-Pierre-du-Mont ; 5km",
-                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..", "www.facebook.fr/Ludovic");
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.toggleFavoriteNeighbour(neighbour);
         service.toggleFavoriteNeighbour(neighbour);
         assertFalse(service.getFavoriteNeighbours().contains(neighbour));

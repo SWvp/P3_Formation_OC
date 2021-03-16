@@ -26,6 +26,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
+import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.core.IsNull.notNullValue;
 
 /**
@@ -33,7 +34,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
  */
 @RunWith(AndroidJUnit4.class)
 public class FavoriteListTest {
-
+    private static int ITEMS_COUNT = 12;
     private ListNeighbourActivity mActivity;
 
     @Rule
@@ -53,14 +54,14 @@ public class FavoriteListTest {
     }
 
     @Test
-    public void favoriteFragment_showsOnlyFavorite(){
-
+    public void favoriteFragment_showsFavorite(){
+        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
         onView(ViewMatchers.withId(R.id.add_Favorite)).perform(click());
         onView(ViewMatchers.withId(R.id.back_button)).perform(click());
         onView(withId(R.id.list_neighbours)).perform(swipeLeft());
-        onView(ViewMatchers.withId(R.id.list_favorite)).check(withItemCount(1));
+        onView(allOf(ViewMatchers.withId(R.id.item_list_name), isDisplayed())).check(matches(withText("Caroline")));
 
     }
 }
