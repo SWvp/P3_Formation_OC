@@ -29,7 +29,6 @@ public class NeighbourFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private MyNeighbourRecyclerViewAdapter mAdapter;
 
-
     /**
      * Create and return a new instance
      * @return @{@link NeighbourFragment}
@@ -43,7 +42,6 @@ public class NeighbourFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
-
     }
 
     @Override
@@ -60,13 +58,16 @@ public class NeighbourFragment extends Fragment {
     }
 
     /**
-     * Init the List of neighbours
+     * Refresh the List of neighbours
      */
     private void refreshList() {
         List<Neighbour> newNeighbourList = mApiService.getNeighbours();
         mAdapter.submitList(newNeighbourList);
     }
 
+    /**
+     * Init the List of neighbours
+     */
     private void initList() {
         mAdapter = new MyNeighbourRecyclerViewAdapter(false);
         mRecyclerView.setAdapter(mAdapter);
@@ -77,7 +78,6 @@ public class NeighbourFragment extends Fragment {
         super.onResume();
         refreshList();
     }
-
 
     @Override
     public void onStart() {

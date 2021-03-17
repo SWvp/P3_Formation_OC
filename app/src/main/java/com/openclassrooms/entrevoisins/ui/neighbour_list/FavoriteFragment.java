@@ -26,24 +26,21 @@ import java.util.List;
 
 
 public class FavoriteFragment extends Fragment  {
-    @NonNull
+
     private NeighbourApiService mNeighbourApiService;
     private RecyclerView mRecyclerView;
     private MyNeighbourRecyclerViewAdapter mAdapter;
     List<Neighbour> newFavoriteList = new ArrayList<>();
 
-
-
-
     public static FavoriteFragment newInstance() {
         FavoriteFragment fragment = new FavoriteFragment();
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mNeighbourApiService = DI.getNeighbourApiService();
-
     }
 
     @Override
@@ -60,7 +57,7 @@ public class FavoriteFragment extends Fragment  {
         return view;
     }
     /**
-     * start list
+     * start list with boolean (adapter will know what fragment is on view)
      */
     private void initList() {
         mAdapter = new MyNeighbourRecyclerViewAdapter(true);
@@ -71,15 +68,15 @@ public class FavoriteFragment extends Fragment  {
      * return list from service, and send to adapter
      */
     public void onNewFavoriteNeighbour() {
-        newFavoriteList = mNeighbourApiService.getFavoriteNeighbours();
+        newFavoriteList = mNeighbourApiService.getFavoritesNeighbours();
         mAdapter.submitList(newFavoriteList);
     }
 
     /**
-     * refresh on eventBus event
+     * refresh
      */
     private void refreshList() {
-        List<Neighbour> newFavoriteList = mNeighbourApiService.getFavoriteNeighbours();
+        List<Neighbour> newFavoriteList = mNeighbourApiService.getFavoritesNeighbours();
         mAdapter.submitList(newFavoriteList);
     }
 
@@ -113,7 +110,6 @@ public class FavoriteFragment extends Fragment  {
      */
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
-
         refreshList();
     }
 
@@ -124,7 +120,6 @@ public class FavoriteFragment extends Fragment  {
     @Subscribe
     public void onDeleteFavorite(DeleteFavoriteEvent event) {
         mNeighbourApiService.deleteFavorite(event.favoriteNeighbour);
-
         refreshList();
     }
 

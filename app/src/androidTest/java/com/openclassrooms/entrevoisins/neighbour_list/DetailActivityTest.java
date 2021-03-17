@@ -1,10 +1,11 @@
-package com.openclassrooms.entrevoisins;
+package com.openclassrooms.entrevoisins.neighbour_list;
 
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.DetailsActivity;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.ClickItemViewAction;
@@ -30,11 +31,8 @@ import static org.hamcrest.core.IsNull.notNullValue;
  * Test class for deatil activity
  */
 
-
 @RunWith(AndroidJUnit4.class)
 public class DetailActivityTest {
-
-    private static int ITEMS_COUNT = 12;
 
     private ListNeighbourActivity mActivity;
 
@@ -44,6 +42,7 @@ public class DetailActivityTest {
 
     @Before
     public void setUp() {
+
         mActivity = mActivityRule.getActivity();
         assertThat(mActivity, notNullValue());
     }
@@ -56,23 +55,18 @@ public class DetailActivityTest {
     }
 
     @Test
-    public void detailActivityLaunch(){
+    public void launch_detailsActivity_from_MainActivity(){
 
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
         onView(withId(R.id.bigName)).check(matches(isDisplayed()));
-
     }
 
-
     @Test
-    public void TextViewDetailTest(){
+    public void textView_detailsActivity_displaysCorrectString(){
 
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
         onView(withId(R.id.bigName)).check(matches(withText("Caroline")));
-
-
     }
-
 }

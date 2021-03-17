@@ -32,7 +32,6 @@ public class NeighboursListTest {
 
     // This is fixed
     private static int ITEMS_COUNT = 12;
-
     private ListNeighbourActivity mActivity;
 
     @Rule

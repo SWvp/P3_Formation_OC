@@ -15,11 +15,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
 public class ListNeighbourActivity extends AppCompatActivity {
 
     @Nullable
     private FavoriteFragment mFavorite;
-
     ListNeighbourPagerAdapter mPagerAdapter;
 
     // UI Components
@@ -38,12 +38,10 @@ public class ListNeighbourActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
-
         mPagerAdapter = new ListNeighbourPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
     }
 
     /**
@@ -56,7 +54,6 @@ public class ListNeighbourActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             if (mFavorite != null) {
-
                 mFavorite.onNewFavoriteNeighbour();
             }
         }
@@ -70,7 +67,6 @@ public class ListNeighbourActivity extends AppCompatActivity {
     public void onAttachFragment(Fragment fragment) {
         super.onAttachFragment(fragment);
         if(fragment instanceof FavoriteFragment){
-
             mFavorite = (FavoriteFragment) fragment;
         }
     }
@@ -79,5 +75,4 @@ public class ListNeighbourActivity extends AppCompatActivity {
     void addNeighbour() {
         AddNeighbourActivity.navigate(this);
     }
-
 }

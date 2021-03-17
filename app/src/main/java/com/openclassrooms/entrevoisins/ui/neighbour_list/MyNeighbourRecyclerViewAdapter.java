@@ -27,6 +27,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours = new ArrayList<>();
@@ -34,7 +35,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
     public MyNeighbourRecyclerViewAdapter(boolean isFavorite){
         this.isFavorite = isFavorite;
-
     }
 
     @Override
@@ -55,23 +55,18 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /**
-                 * tab position condition
-                 */
                 if (isFavorite)
-                /**
-                 * two delete event
-                 */ {
+                 {
                      EventBus.getDefault().post(new DeleteFavoriteEvent(neighbour));
                  } else {
                      EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
                  }
             }
-
         });
 
-        /** Start new activity from item_list_name */
-
+        /**
+         * Start new activity from item_list_name
+         */
         holder.mNeighbourName.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -81,16 +76,10 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
               ((Activity) mContext).startActivityForResult(detailActivity , 1);
           }
       });
-
     }
-
-
-
-
 
     @Override
     public int getItemCount() {
-
         return mNeighbours.size();
     }
 
@@ -104,7 +93,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         notifyDataSetChanged();
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.item_list_avatar)
         public ImageView mNeighbourAvatar;
@@ -113,12 +101,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
 
-
         public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-
         }
-
     }
 }

@@ -24,7 +24,7 @@ public interface NeighbourApiService {
      * Deletes a neighbour
      * @param neighbour
      */
-    void deleteFavorite(Neighbour neighbour);
+    void deleteNeighbour(Neighbour neighbour);
 
     /**
      * Create a neighbour
@@ -40,15 +40,15 @@ public interface NeighbourApiService {
      * Deletes a favorite neighbour in favorite fragment
      * @param neighbour
      */
-    void deleteNeighbour(Neighbour neighbour);
+    void deleteFavorite(Neighbour neighbour);
 
     /**
      * get favorite neighbour list
      */
-    List<Neighbour> getFavoriteNeighbours();
+    List<Neighbour> getFavoritesNeighbours();
 
     /**
-     * Switch add favorite / delete favorite in details activity with FAB
+     * Switch add favorite / delete favorite in details activity, with FAB
      * @param neighbour
      */
     void toggleFavoriteNeighbour(@NonNull Neighbour neighbour);

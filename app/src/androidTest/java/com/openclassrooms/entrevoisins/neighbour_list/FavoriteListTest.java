@@ -1,12 +1,12 @@
-package com.openclassrooms.entrevoisins;
+package com.openclassrooms.entrevoisins.neighbour_list;
 
-import android.support.test.espresso.ViewInteraction;
+
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.openclassrooms.entrevoisins.ui.neighbour_list.DetailsActivity;
+import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.ClickItemViewAction;
 
@@ -18,7 +18,6 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
-import static android.support.test.espresso.action.ViewActions.swipeRight;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
@@ -34,6 +33,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
  */
 @RunWith(AndroidJUnit4.class)
 public class FavoriteListTest {
+
     private static int ITEMS_COUNT = 12;
     private ListNeighbourActivity mActivity;
 
@@ -62,6 +62,5 @@ public class FavoriteListTest {
         onView(ViewMatchers.withId(R.id.back_button)).perform(click());
         onView(withId(R.id.list_neighbours)).perform(swipeLeft());
         onView(allOf(ViewMatchers.withId(R.id.item_list_name), isDisplayed())).check(matches(withText("Caroline")));
-
     }
 }

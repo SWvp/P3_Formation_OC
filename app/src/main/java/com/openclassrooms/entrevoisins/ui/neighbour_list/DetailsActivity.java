@@ -22,16 +22,13 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.squareup.picasso.Picasso;
 
-/**
- * Created by stéphane Warin OCR on 20/02/2021.
- */
+
 public class DetailsActivity extends AppCompatActivity {
 
     NeighbourApiService mNeighbourApiService;
     FloatingActionButton addFavorite;
     ImageButton backButton;
     Neighbour neighbour;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,19 +79,14 @@ public class DetailsActivity extends AppCompatActivity {
                 Intent resultIntent = new Intent();
                 setResult(RESULT_OK , resultIntent);
             }
-
-
         });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent (DetailsActivity.this, ListNeighbourActivity.class);
                 startActivity(intent);
             }
-
-
         });
     }
 
@@ -102,11 +94,11 @@ public class DetailsActivity extends AppCompatActivity {
      * set FAB color
      */
     public void fabColorSetting(){
-        if(mNeighbourApiService.getFavoriteNeighbours().contains(neighbour)){
+        if(mNeighbourApiService.getFavoritesNeighbours().contains(neighbour)){
             addFavorite.setColorFilter(Color.argb(255,255,232,117));
         }
         else{
             addFavorite.setColorFilter(Color.argb(255,255,255,255));
-        };
+        }
     }
 }

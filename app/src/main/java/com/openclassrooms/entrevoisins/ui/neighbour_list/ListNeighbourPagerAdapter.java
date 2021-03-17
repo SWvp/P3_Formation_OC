@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
-
     public ListNeighbourPagerAdapter(FragmentManager fm) {
 
         super(fm);
@@ -39,5 +38,4 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 2;
     }
-
 }

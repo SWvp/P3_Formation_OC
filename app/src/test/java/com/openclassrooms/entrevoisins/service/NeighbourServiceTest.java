@@ -25,7 +25,6 @@ public class NeighbourServiceTest {
 
     @Before
     public void setup() {
-
         service = DI.getNewInstanceApiService();
     }
 
@@ -45,42 +44,40 @@ public class NeighbourServiceTest {
 
     @Test
     public void getFavoritesWithSuccess(){
-        service.getFavoriteNeighbours().clear();
+        service.getFavoritesNeighbours().clear();
         Neighbour neighbour = new Neighbour(12, "Ludovic", "https://i.pravatar.cc/300?u=a042581f3e39026702d", "Saint-Pierre-du-Mont ; 5km",
                 "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
-        service.getFavoriteNeighbours().add(neighbour);
-        assertTrue(service.getFavoriteNeighbours().contains(neighbour));
+        service.getFavoritesNeighbours().add(neighbour);
+        assertTrue(service.getFavoritesNeighbours().contains(neighbour));
     }
 
     @Test
     public void addFavoriteFromFabWithSuccess(){
-        service.getFavoriteNeighbours().clear();
+        service.getFavoritesNeighbours().clear();
         Neighbour neighbour = new Neighbour(12, "Ludovic", "https://i.pravatar.cc/300?u=a042581f3e39026702d", "Saint-Pierre-du-Mont ; 5km",
                 "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.toggleFavoriteNeighbour(neighbour);
-        assertTrue(service.getFavoriteNeighbours().contains(neighbour));
-
+        assertTrue(service.getFavoritesNeighbours().contains(neighbour));
     }
 
     @Test
     public void deleteFavoriteFromFabWithSuccess(){
-        service.getFavoriteNeighbours().clear();
+        service.getFavoritesNeighbours().clear();
         Neighbour neighbour = new Neighbour(12, "Ludovic", "https://i.pravatar.cc/300?u=a042581f3e39026702d", "Saint-Pierre-du-Mont ; 5km",
                 "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.toggleFavoriteNeighbour(neighbour);
         service.toggleFavoriteNeighbour(neighbour);
-        assertFalse(service.getFavoriteNeighbours().contains(neighbour));
-
+        assertFalse(service.getFavoritesNeighbours().contains(neighbour));
     }
 
     @Test
     public void deleteFavoriteFromFavoriteFragmentWithSuccess(){
         Neighbour expectedDeletedNeighbour = service.getNeighbours().get(0);
-        List<Neighbour> mNeighbour = service.getFavoriteNeighbours();
+        List<Neighbour> mNeighbour = service.getFavoritesNeighbours();
         mNeighbour.clear();
         mNeighbour.add(expectedDeletedNeighbour);
         service.deleteFavorite(expectedDeletedNeighbour);
-        assertFalse(service.getFavoriteNeighbours().contains(expectedDeletedNeighbour));
+        assertFalse(service.getFavoritesNeighbours().contains(expectedDeletedNeighbour));
         assertTrue(service.getNeighbours().contains((expectedDeletedNeighbour)));
     }
 }
