@@ -48,13 +48,6 @@ public class DetailActivityTest {
     }
 
     @Test
-    public void myNeighboursList_shouldNotBeEmpty() {
-
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .check(matches(hasMinimumChildCount(1)));
-    }
-
-    @Test
     public void launch_detailsActivity_from_MainActivity(){
 
         onView(ViewMatchers.withId(R.id.list_neighbours))

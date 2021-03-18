@@ -48,12 +48,6 @@ public class FavoriteListTest {
     }
 
     @Test
-    public void myNeighboursList_shouldNotBeEmpty() {
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .check(matches(hasMinimumChildCount(1)));
-    }
-
-    @Test
     public void favoriteFragment_showsFavorite(){
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
         onView(ViewMatchers.withId(R.id.list_neighbours))
@@ -62,5 +56,6 @@ public class FavoriteListTest {
         onView(ViewMatchers.withId(R.id.back_button)).perform(click());
         onView(withId(R.id.list_neighbours)).perform(swipeLeft());
         onView(allOf(ViewMatchers.withId(R.id.item_list_name), isDisplayed())).check(matches(withText("Caroline")));
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed())).check(withItemCount(1));
     }
 }

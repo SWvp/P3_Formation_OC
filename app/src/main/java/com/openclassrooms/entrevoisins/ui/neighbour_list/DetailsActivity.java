@@ -84,8 +84,7 @@ public class DetailsActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (DetailsActivity.this, ListNeighbourActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }
