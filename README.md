@@ -21,5 +21,12 @@ Version:
 **Instructions pour le lancement des différents tests:**
 
   Choisir celui désiré à gauche du bouton "Run" (initiailement sur "app") et appuyer sur le bouton "Run".
+  
+**Export des tests:**  
+  Tests unitaires:
+  https://github.com/SWvp/P3_Formation_OC/tree/master/app/src/test
+  
+  Tests instrumentalisés:
+  https://github.com/SWvp/P3_Formation_OC/tree/master/app/src/androidTest
 
 
