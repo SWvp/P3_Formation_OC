@@ -6,7 +6,7 @@ Version:
     Android 9, 
     API 28
 
-Instructions pour l'installation de l'application:
+**Instructions pour l'installation de l'application:**
 
   1/Récupérer le programme via le bouton "Download Zip" qui se trouve dans l'onglet "Code".
 
@@ -18,7 +18,7 @@ Instructions pour l'installation de l'application:
   
   
 	
-Instructions pour le lancement des différents tests:
+**Instructions pour le lancement des différents tests:**
 
   Choisir celui désiré à gauche du bouton "Run" (initiailement sur "app") et appuyer sur le bouton "Run".
 
