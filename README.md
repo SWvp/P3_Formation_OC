@@ -14,7 +14,7 @@ Version:
   
   3/Importer le projet.
   
-  4/Appuyer sur "Run" en haut à doite de la fenêtre de code pour lancer l'émulateur.
+  4/Appuyer sur "Run" (symboliser par une flêche verte) en haut à doite de la fenêtre de code pour lancer l'émulateur.
   
   
 	
