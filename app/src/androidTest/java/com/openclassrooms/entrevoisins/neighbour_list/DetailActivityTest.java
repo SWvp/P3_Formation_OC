@@ -52,7 +52,7 @@ public class DetailActivityTest {
 
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
-        onView(withId(R.id.bigName)).check(matches(isDisplayed()));
+        onView(withId(R.id.bigName)).check(matches((withText("Caroline"))));
     }
 
     @Test
