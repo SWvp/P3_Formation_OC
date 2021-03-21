@@ -11,7 +11,9 @@ Instructions pour l'installation de l'application
   Récupérer le programme via le bouton "Download Zip" qui se trouve dans l'onglet "Code".
 
   Lancer Android Studio, dans l'onglet "File" choisir "Open" et choisir le dossier où le dossier téléchargé se trouve.
+  
   Importer le projet.
+  
   Appuyer sur "Run" en haut à doite de la fenêtre de code pour lancer l'émulateur.
 	
 
