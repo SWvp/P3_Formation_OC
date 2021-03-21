@@ -8,14 +8,13 @@ Version
 
 Instructions pour l'installation de l'application
 
-    Récupérer le programme via le bouton Download ou en utilisant git clone via ce lien     https://github.com/SWvp/P3_Formation_OC
+  Récupérer le programme via le bouton "Download Zip" qui se trouve dans l'onglet "Code".
 
-    Lancer Android Studio, dans l'onglet "File" choisir "Open" et choisir le dossier où le dossier téléchargé se trouve.
-    Importer le projet.
-    Laisser le logiciel faire ses mises à jours.
-    Appuyer sur "Run" en haut à doite de la fenêtre de code pour lancer l'émulateur.
+  Lancer Android Studio, dans l'onglet "File" choisir "Open" et choisir le dossier où le dossier téléchargé se trouve.
+  Importer le projet.
+  Appuyer sur "Run" en haut à doite de la fenêtre de code pour lancer l'émulateur.
 	
 
-    Pour les tests, choisir celui désiré à gauche du bouton "Run" et appuyer sur le bouton "Run".
+  Pour les tests, choisir celui désiré à gauche du bouton "Run" (initiailement sur "app") et appuyer sur le bouton "Run".
 
 
