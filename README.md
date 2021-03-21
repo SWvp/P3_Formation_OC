@@ -10,7 +10,7 @@ Instructions pour l'installation de l'application:
 
   1/Récupérer le programme via le bouton "Download Zip" qui se trouve dans l'onglet "Code".
 
-  2/Lancer Android Studio, dans l'onglet "File" choisir "Open" et choisir le dossier où le dossier téléchargé se trouve.
+  2/Lancer Android Studio, dans l'onglet "File" choisir "Open" et choisir l'emplacement du dossier téléchargé préalablement.
   
   3/Importer le projet.
   
