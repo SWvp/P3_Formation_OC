@@ -2,19 +2,18 @@
 
 Ce dépôt contient une mini-application pour le P3 du parcours **Grande École du Numérique**.
 
-Version:
-    Android 9, 
-    API 28
 
 **Instructions pour l'installation de l'application:**
 
   1/Récupérer le programme via le bouton "Download Zip" qui se trouve dans l'onglet "Code".
+  
+  2/Dezipper (à l'aide par exemple de 7Zip) .
 
-  2/Lancer Android Studio, dans l'onglet "File" choisir "Open" et choisir l'emplacement du dossier téléchargé préalablement.
+  3/Lancer Android Studio, et dans l'onglet "File" choisir "Open" et choisir l'emplacement du dossier dézippé.
   
-  3/Importer le projet.
+  4/Importer le projet.
   
-  4/Appuyer sur "Run" (symboliser par une flêche verte) en haut à doite de la fenêtre de code pour lancer l'émulateur.
+  5/Appuyer sur "Run" (symboliser par une flêche verte) en haut à doite de la fenêtre de code pour lancer l'émulateur.
   
   
 	
