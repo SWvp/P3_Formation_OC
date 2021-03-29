@@ -65,7 +65,7 @@ public class FavoriteFragment extends Fragment  {
     }
 
     /**
-     * return list from service, and send to adapter
+     * return list from service, and send to adapter, called by setResult on listNeighbourActivity
      */
     public void onNewFavoriteNeighbour() {
         newFavoriteList = mNeighbourApiService.getFavoritesNeighbours();
@@ -110,17 +110,10 @@ public class FavoriteFragment extends Fragment  {
      */
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
+        mNeighbourApiService.deleteFavorite(event.neighbour);
         refreshList();
     }
 
-    /**
-     * Subscribe to delete favorite event
-     * @param event
-     */
-    @Subscribe
-    public void onDeleteFavorite(DeleteFavoriteEvent event) {
-        mNeighbourApiService.deleteFavorite(event.favoriteNeighbour);
-        refreshList();
-    }
+
 
 }

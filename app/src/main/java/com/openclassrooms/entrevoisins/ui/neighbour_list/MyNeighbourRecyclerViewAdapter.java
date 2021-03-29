@@ -55,19 +55,16 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isFavorite)
-                 {
-                     EventBus.getDefault().post(new DeleteFavoriteEvent(neighbour));
-                 } else {
+
                      EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
-                 }
+
             }
         });
 
         /**
          * Start new activity from item_list_name
          */
-        holder.mNeighbourName.setOnClickListener(new View.OnClickListener() {
+        holder.itemFragment.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
               Context mContext = v.getContext();
@@ -100,6 +97,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         public TextView mNeighbourName;
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
+        View itemFragment = itemView.findViewById(R.id.item_fragment);
 
         public ViewHolder(View view) {
             super(view);
