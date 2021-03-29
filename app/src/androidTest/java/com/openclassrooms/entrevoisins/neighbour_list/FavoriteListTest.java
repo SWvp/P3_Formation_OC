@@ -7,13 +7,20 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourGenerator;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.ClickItemViewAction;
+import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.List;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -36,6 +43,8 @@ public class FavoriteListTest {
 
     private static int ITEMS_COUNT = 12;
     private ListNeighbourActivity mActivity;
+    private NeighbourApiService mApiService = DI.getNeighbourApiService();
+    private List<Neighbour> mNeighbourList = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
 
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityRule = new
@@ -47,8 +56,10 @@ public class FavoriteListTest {
         assertThat(mActivity, notNullValue());
     }
 
+
+
     @Test
-    public void favoriteFragment_showsFavorite(){
+    public void favoriteFragment_showsOnlyFavorite_addedOrRemoved(){
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
@@ -57,5 +68,11 @@ public class FavoriteListTest {
         onView(withId(R.id.list_neighbours)).perform(swipeLeft());
         onView(allOf(ViewMatchers.withId(R.id.item_list_name), isDisplayed())).check(matches(withText("Caroline")));
         onView(allOf(ViewMatchers.withId(R.id.list_favorite), isDisplayed())).check(withItemCount(1));
+        onView(ViewMatchers.withId(R.id.list_favorite))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
+        onView(allOf(ViewMatchers.withId(R.id.list_favorite), isDisplayed())).check(withItemCount(0));
     }
+
+
+
 }
