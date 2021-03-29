@@ -47,20 +47,14 @@ public class DetailActivityTest {
         assertThat(mActivity, notNullValue());
     }
 
-    @Test
-    public void launch_detailsActivity_from_MainActivity(){
 
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
-        onView(withId(R.id.bigName)).check(matches((withText("Caroline"))));
-    }
 
 
     @Test
     public void detailsActivity_display_neighbourName(){
 
         onView(ViewMatchers.withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         onView(withId(R.id.bigName)).check(matches((withText("Caroline"))));
     }
 

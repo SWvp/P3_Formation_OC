@@ -51,7 +51,7 @@ public class FavoriteListTest {
     public void favoriteFragment_showsFavorite(){
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
         onView(ViewMatchers.withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickItemViewAction()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         onView(ViewMatchers.withId(R.id.add_Favorite)).perform(click());
         onView(ViewMatchers.withId(R.id.back_button)).perform(click());
         onView(withId(R.id.list_neighbours)).perform(swipeLeft());
